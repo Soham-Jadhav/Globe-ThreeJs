@@ -4,7 +4,6 @@ import vertexShader from './shaders/vertex.glsl';
 import fragmentShader from './shaders/fragment.glsl';
 import atmosphereVertexShader from './shaders/atmosphereVertex.glsl';
 import atmosphereFragmentShader from './shaders/atmosphereFragment.glsl';
-// console.log(vertexShader);
 
 const canvasDiv = document.getElementById('canvasDiv');
 
@@ -12,7 +11,6 @@ const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
   75,
-  // window.innerWidth / window.innerHeight,
   canvasDiv.offsetWidth / canvasDiv.offsetHeight,
   0.1,
   1000
@@ -22,10 +20,8 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
   canvas: document.querySelector('canvas'),
 });
-// renderer.setSize(innerWidth, innerHeight);
 renderer.setSize(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
 renderer.setPixelRatio(devicePixelRatio);
-// document.body.appendChild(renderer.domElement);
 
 // Create a sphere
 const geometry = new THREE.SphereGeometry(5, 50, 50);
@@ -38,10 +34,6 @@ const material = new THREE.ShaderMaterial({
     },
   },
 });
-// const material = new THREE.MeshBasicMaterial({ 
-//   // color: 0xff0000, 
-//   map: new THREE.TextureLoader().load('./assets/globe.jpg'),
-// });
 const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
 
@@ -74,7 +66,6 @@ for (let i = 0; i < 1000; i++) {
   const x = (Math.random() - 0.5) * 2000;
   const y = (Math.random() - 0.5) * 2000;
   const z = (Math.random() - 0.5) * 2000;
-  // const z = -Math.random() * 2000;
 
   starVertices.push(x, y, z);
 }
@@ -97,8 +88,6 @@ let animationId;
 function animate() {
   animationId = requestAnimationFrame(animate);
 
-  // renderer.setSize(innerWidth, innerHeight);
-  // renderer.setSize(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
   renderer.render(scene, camera);
 
   // Rotate starfield
@@ -107,7 +96,6 @@ function animate() {
 
   // Rotate globe
   sphere.rotation.y += 0.0015;
-  // group.rotation.y = mouse.x * 0.5;
   gsap.to(group.rotation, {
     x: -mouse.y * 0.3,
     y: mouse.x * 0.5,
