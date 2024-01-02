@@ -3,19 +3,86 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="./globe2.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <title>The Globe</title>
+
+  <link rel="stylesheet" href="tailwind.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&family=Lato&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-exo {
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    .font-lato {
+      font-family: 'Lato', sans-serif;
     }
   </style>
 </head>
 
 <body>
-  <div id="app"></div>
+  <div class="flex" id="app" style="
+    display: flex;
+    height: 100vh
+    ">
+    <div class="w-1/2" style="
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+      padding-left: 8px;
+      padding-right: 8px;
+      background-color: black;
+      color: white;
+      ">
+      <div style="
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      ">
+        <h1 class="font-exo" style="
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        margin-bottom: 30px;
+      ">CHALLENGING THE STANDARD OF SPACE EXPLORATION</h1>
+        <p class="font-lato" style="
+        color: gray;
+        margin-bottom: 35px;
+      ">
+          The globe is a three-dimensional model of the Earth with high-resolution 3D imagery. The first globe was
+          created
+          around 150 BC. by Crates of Mallus.
+        </p>
+        <div>
+          <a class="font-lato" href="https://en.wikipedia.org/wiki/Globe" style="
+          background-color: green;
+          display: inline-block;
+          padding-left: 40px;
+          padding-right: 40px;
+          padding-top: 18px;
+          padding-bottom: 18px;
+          border-radius: 9999px;
+        ">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2" id="canvasDiv" style="
+      width: 50%;
+      ">
+      <canvas></canvas>
+    </div>
+  </div>
   <script type="module" src="/main.js"></script>
 </body>
 

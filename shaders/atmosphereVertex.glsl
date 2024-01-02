@@ -1,10 +1,8 @@
 // Pass the uv & normal default passed properties to fragments.glsl (somewhat like React props)
-varying vec2 vertexUV;
 varying vec3 vertexNormal;
 
 void main() {
     // Instanciate the vertexUV & vectorNormal prop
-    vertexUV = uv;
     // vertexNormal = normal;
     vertexNormal = normalize(normalMatrix * normal);
 
